@@ -1,14 +1,17 @@
-
-import './App.css'
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import BoxSearch from "./components/box-search/BoxSearch";
 
 function App() {
-  
 
-  return (
-    <>
-     
-    </>
-  )
+
+	return (
+		<>
+			<Routes>
+				<Route path="/" element={<BoxSearch />} />
+			</Routes>
+		</>
+	);
 }
 
-export default App
+export default App;
