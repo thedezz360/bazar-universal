@@ -12,7 +12,7 @@ module.exports = {
     project: ['./tsconfig.json', './tsconfig.node.json'],
     tsconfigRootDir: __dirname,
   },
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', "api/build"],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
@@ -20,6 +20,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+		"@typescript-eslint/no-unnecessary-condition": "error",
 		"quotes":["error", "double"],
 		"indent":["error","tab"],
 		"linebreak-style": ["error", "windows"],
