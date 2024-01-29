@@ -1,18 +1,28 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "./boxSearch.css";
+import iconSearch from "../../assets/svgs/IconSearch.svg";
+
 
 type DataForm = {
 	search :string
 }
 
-function BoxSearch() {
+type props = {
+	hideButton: boolean,
+}
+
+function BoxSearch({hideButton}: props) {
+
+
 
 	const navigate = useNavigate();
+
 	const handleSubmit = (e : React.FormEvent<HTMLFormElement>):void=>{
 		e.preventDefault();
 
 		// get reference to form
-		const form = document.getElementById("search") as HTMLFormElement;
+		const form = document.getElementById("searchForm") as HTMLFormElement;
 		
 		// crete FormData object 
 		const formData = new FormData(form);
@@ -21,18 +31,30 @@ function BoxSearch() {
 		const data :DataForm = {
 			search:formData.get("search") as string
 		}; 
+
+		
 		
 		
 		navigate(`/items/?search=${data.search}`);
 	};
+
 	return (
 		<>
-			<div>BoxSearch</div>
+			<form id="searchForm" onSubmit={handleSubmit}>
+				<div className="input-container">
+					<input 
+						className="input-form" 
+						type="search" 
+						name="search" 
+						id="search" 
+						placeholder="laptop, smartphone, ..."
+					
+					/>
 
-			<form id="search" onSubmit={handleSubmit}>
-				
-				<input type="search" name="search" id="search" />
-				<button type="submit">
+					<img className="custom-icon" src={iconSearch} alt="icon search" />
+
+				</div>
+				<button className={hideButton ? "hide button-form" : "button-form"} type="submit">
 					Buscar
 				</button>
 			</form>

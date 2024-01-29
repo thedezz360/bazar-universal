@@ -1,9 +1,25 @@
+.text-center{
+	text-align: center;
+}
+
+.mb-2{
+	margin-bottom: 2rem;
+}
+
 .container {
 	max-width: 500px;
 	margin: auto;
 	padding: 1rem;
 }
 
+/* Search page */
+.lottie-container{
+	width: 100%;
+	height: auto;
+}
+
+
+/* product page */
 .container-tag {
 	display: flex;
 	gap: 1rem;
@@ -32,6 +48,8 @@
 	background-color: #272727;
 	padding: 10px;
 	align-content: center;
+	border-radius: 10px;
+	box-shadow: 5px 5px 2px 2px rgba(60, 60, 60, 0.1);
 }
 
 .product picture{
@@ -40,8 +58,8 @@
 }
 
 .product-img {
-	width: 100%;
-	height: auto;
+	width: 140px;
+	height: 140px;
 	border-radius: 50%;
 }
 

@@ -1,0 +1,36 @@
+.hide{
+	display: none;
+}
+
+#searchForm{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+}
+
+.input-container{
+	display: flex;
+	position: relative;
+}
+
+.input-form{
+	width: 250px;
+	padding: 6px;
+	
+}
+
+.button-form{
+	width: 150px;
+	padding: 10px;
+}
+
+.custom-icon{
+	position: absolute;
+	width: 30px;
+	top: 0px;
+	right: 0px;
+	color: rgba(0, 0, 0, 0.082);
+}
+
+

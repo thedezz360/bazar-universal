@@ -31,6 +31,20 @@ type Item = {
 }
 type Items = Item[];
 
+function getItemById(id: number):Item | null{
+	
+	if(!id) return null;
+	
+	const  item  = productsData.products.find(product => product.id === id);
+
+
+	if(typeof item === "undefined"){
+		return null;
+	}
+	return item;
+
+}
+
 function getItems (searchParam: Query):Items | null{
 	if(typeof searchParam !== "string") return null;
 	const items:Items = productsData.products.filter((product:Item) =>(
@@ -48,14 +62,22 @@ app.get("/api/items", (req: Request, res: Response) => {
 		console.log({ q });
 		const items = getItems(q);
 		const data = items ? items : "NOT_FOUND";
-		console.log({data});
 		res.json({ data });
 	} catch (error) {
 		console.error("error : ", error);
 		
 	}
+});
 
-
+app.get("/api/items/:id", (req:Request, res:Response)=>{
+	try{
+		const {id} = req.params;
+		const item = getItemById(parseInt(id));
+		const data = item ? item : "NOT_FOUND";
+		res.json({data});
+	}catch(e){
+		console.error("Error get items id: " , e);
+	}
 });
 
 app.listen(PORT, () => {

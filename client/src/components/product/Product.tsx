@@ -1,3 +1,5 @@
+
+import { useNavigate } from "react-router-dom";
 import { Item } from "../../types/types";
 
 
@@ -7,8 +9,15 @@ type props = {
 
 
 function Product ({product}:props){
+
+	const navigate = useNavigate();
+	const handleClickProduct = ()=>{
+		navigate(`items/${product.id}`);
+	};
+
+
 	return(
-		<article className="product">
+		<article className="product" onClick={handleClickProduct}>
 			<picture>
 				<img className="product-img" src={product.thumbnail} alt={`image product ${product.title}`} />
 			</picture>

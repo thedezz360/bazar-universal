@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import BoxSearch from "./components/box-search/BoxSearch";
-import { ResultsList } from "./components/results-list/ResultsList";
+import SearchPage from "./pages/SearchPage";
+import { ProductsPage } from "./pages/ProductsPage";
+import { ProductDetailPage } from "./pages/ProductDetailPage";
 
 function App() {
 
@@ -9,8 +10,9 @@ function App() {
 	return (
 		<div className="container">
 			<Routes>
-				<Route path="/" element={<BoxSearch />} />
-				<Route path="/items/" element={<ResultsList />} />
+				<Route path="/" element={<SearchPage />} />
+				<Route path="/items/" element={<ProductsPage />} />
+				<Route path="/items/:id" element={<ProductDetailPage />} />
 			</Routes>
 		</div>
 	);

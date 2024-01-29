@@ -1,12 +1,15 @@
+
+
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Items } from "../../types/types";
-import Product from "./Product";
-import BoxSearch from "../box-search/BoxSearch";
+import { Items } from "../types/types";
+import Product from "../components/product/Product";
+import BoxSearch from "../components/box-search/BoxSearch";
 
 
 
-export function ResultsList() {
+
+export function ProductsPage() {
 	console.log("resultList");
 
 	const [products, setProducts] = useState<Items | null>(null);
@@ -41,7 +44,6 @@ export function ResultsList() {
 	}, [itemToSearch]);
 
 	
-
 	// to get categories of products 
 	useEffect(()=>{
 		
@@ -83,7 +85,7 @@ export function ResultsList() {
 
 	return (
 		<>
-			<BoxSearch />
+			<BoxSearch hideButton={true} />
 			<h1>Search result: {products?.data.length}</h1>
 			
 			{/* tags */}
