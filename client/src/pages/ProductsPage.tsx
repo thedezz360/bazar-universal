@@ -86,7 +86,7 @@ export function ProductsPage() {
 	return (
 		<>
 			<BoxSearch hideButton={true} />
-			<h1>Search result: {products?.data.length}</h1>
+			<h1 className="search-result">Search result: {products?.data.length}</h1>
 			
 			{/* tags */}
 			<div className="container-tag">

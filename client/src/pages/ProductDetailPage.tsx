@@ -1,6 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { Item } from "../types/types";
+import { ProductDetail } from "../components/product-detail/ProductDetail";
+import BoxSearch from "../components/box-search/BoxSearch";
 
 type data = {
 	data: Item
@@ -14,7 +16,9 @@ export function ProductDetailPage() {
 	
 	const {id} = useParams();
 
-	
+	/**
+	 * function to get data
+	 */
 	const fetchData =  useCallback(
 		async ()=>{
 			try{
@@ -40,6 +44,9 @@ export function ProductDetailPage() {
 	);
 	
 
+	/**
+	 * fetch to get data of product
+	 */
 	useEffect(()=>{
 		
 		fetchData().catch((e)=>{
@@ -51,15 +58,19 @@ export function ProductDetailPage() {
 
 
 	return (
-		<div>
+		<>
 			{dataProduct ? 
 				(
-					<h1>{dataProduct.title}</h1>	
+					<>
+						<BoxSearch hideButton={true} />
+
+						<ProductDetail data={dataProduct} />
+					</>
 				):(
 					<p>Loading...</p>
 				)
 
 			}
-		</div>
+		</>
 	);
 }

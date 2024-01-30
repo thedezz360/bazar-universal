@@ -12,7 +12,7 @@ function Product ({product}:props){
 
 	const navigate = useNavigate();
 	const handleClickProduct = ()=>{
-		navigate(`items/${product.id}`);
+		navigate(`/items/${product.id}`);
 	};
 
 
