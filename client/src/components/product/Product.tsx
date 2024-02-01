@@ -1,6 +1,7 @@
 
 import { useNavigate } from "react-router-dom";
 import { Item } from "../../types/types";
+import { Rating } from "../rating/Rating";
 
 
 type props = {
@@ -28,7 +29,7 @@ function Product ({product}:props){
 				
 				<div className="product-footer">
 					<span className="product-price">{product.price}$</span>
-					<span className="product-rating">{product.rating}</span>
+					<Rating rating={product.rating}/>
 				</div>
 			</div>
 		</article>

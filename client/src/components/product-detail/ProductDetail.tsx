@@ -1,11 +1,15 @@
-
+import { Rating } from "../rating/Rating";
 import { Item } from "../../types/types";
 import "./productDetail.css";
+
+
 
 type props = {
 	data: Item
 }
 export function ProductDetail({ data }: props) {
+	
+
 
 	const {
 		thumbnail,
@@ -19,6 +23,7 @@ export function ProductDetail({ data }: props) {
 
 	} = data;
 
+	// change img thumbnail when click over img
 	const handleClick = (e:React.MouseEvent<HTMLImageElement>)=>{
 		const currentTarget = e.currentTarget;
 		const src= currentTarget.src;
@@ -37,7 +42,7 @@ export function ProductDetail({ data }: props) {
 				<picture className="slider">
 					{
 						images.map((image, index) => {
-							console.log(index);
+							
 							return (
 								<img 
 									key={index} 
@@ -66,7 +71,7 @@ export function ProductDetail({ data }: props) {
 							{stock} disponibles
 						</span>
 						<span>
-							{rating}
+							<Rating rating={rating} />
 						</span>
 					</span>
 
@@ -80,7 +85,7 @@ export function ProductDetail({ data }: props) {
 			
 			<div className="card-footer">
 				<button className="btn btn-comprar">
-				Comprar
+				Buy
 				</button>
 
 			</div>
