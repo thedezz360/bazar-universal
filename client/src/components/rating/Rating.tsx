@@ -16,7 +16,7 @@ export function Rating({rating}:props) {
 	}
 
 	if(decimal > 2 && decimal <= 9){
-		arrStarsRating.push(<img src={halfStar}/>);
+		arrStarsRating.push(<img key={6} src={halfStar}/>);
 	}
 	
 	return (
